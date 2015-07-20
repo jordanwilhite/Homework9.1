@@ -37,52 +37,50 @@ function expect(target) {
 //
 // Only add code to *THIS* section!
 
-// ????????
-// ????????
-// ????????
 
+var Dog = function(options) {
 
+  this.status = 'normal';
+  this.color = 'black';
+  this.hungry = true;
+  this.owner = null;
 
+  if (options && options.hasOwnProperty('status')) {
+    this.status = options.status;
+  }
 
+  if (options && options.hasOwnProperty('color')) {
+    this.color = options.color;
+  }
 
+  if (options && options.hasOwnProperty('hungry')) {
+    this.hungry = options.hungry;
+  }
 
+  if (options && options.hasOwnProperty('owner')) {
+    this.owner = options.owner;
+  }
+};
 
-var Dog = function () {
+Dog.prototype.eat = function () {
+  this.hungry = false;
+};
 
+var Human = function(options) {
+  this.cool = false;
 
-this.status = options.status || ‘normal’;
-this.hungry = options.hungry || true;
-this.color = options.color || ‘black;
-
-	if (options){
-		if (options.hasOwnProperty(‘hungry’) {
-		console.log(‘I’m True’)
-	this.hungry = options.hungry;
-}
-}
-
-	if (options){
-		if (options.hasOwnProperty(color)) {
-	this.color = options.color;
-}
-}
-
-	if (options){
-		if (options.hasOwnProperty(‘status’)) {
-	this.status = options.status;
-}
-}
-
-
+  if (options && options.hasOwnProperty('cool')) {
+    this.cool = options.cool;
+  }
 
 };
 
-var Human = function() {
-options  = options || {};
+Human.prototype.feed = function (animal) {
+  animal.eat();
 };
 
 Human.prototype.pet = function (animal) {
-	animal.status = ‘happy’;
+	animal.status = 'happy';
 };
 
 //        __
